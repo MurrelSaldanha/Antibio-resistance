@@ -1,4 +1,4 @@
-# Antibio-resistance
+# Antibiotic-resistance
 Neisseria gonorrhoeae is a species of Gram-negative diplococci bacteria and the causative agent of the sexually transmitted infection Gonorrhoeae. Gonorrhoea is the second most common sexually transmitted infection (STI) in Europe, after chlamydia. Rates of gonorrhoea infection are on the rise, with a 26% increase reported from 2017-2018 in the UK.
 
 Many people who are infected (especially women) experience no symptoms, helping its spread. However if the infection is left untreated, it can lead to infertility in women, and can occasionally spread to other parts of the body such as your joints, heart valves, brain or spinal cord.
