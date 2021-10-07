@@ -1,0 +1,35 @@
+#import all the required libraries
+
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import KFold # Allows for Cross vallidation studies
+from sklearn.model_selection import GroupKFold
+from sklearn.model_selection import GridSearchCV # Library allows for finding out best hyperparameters for each model
+from sklearn.svm import SVC #
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+from sklearn.metrics import balanced_accuracy_score
+from sklearn.model_selection import learning_curve
+from sklearn.model_selection import ShuffleSplit
+import matplotlib.pyplot as plt
+import seaborn as sb
+import time
+
+# Data Preprocessing
+
+def prep_data(phenotype) :
+    pheno = pd.read_csv('metadata.csv', index_col=0)
+    pheno = pheno.dropna(subset=['azm_sr']) # drop samples that don't have a value for our chosen resistance profile
+    pheno = pheno['azm_sr']
+        
+    # read in unitig data
+    X = pd.read_csv('azm_sr_gwas_filtered_unitigs.Rtab', sep=" ", index_col=0, low_memory=False)
+    X = X.transpose() # Convert rows to columns
+    print(X)
+    X = X[X.index.isin(pheno.index)] # only keep rows with a resistance value
+    print(pheno)
+    return X, pheno
+
+X = []
+X, pheno = prep_data(phenotype)
